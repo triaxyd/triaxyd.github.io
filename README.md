@@ -1,2 +1,0 @@
-# triaxyd.github.io
-Personal

@@ -1,0 +1,199 @@
+body {
+    background: #181818;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+    display: flex;
+    font-family: monospace;
+}
+
+#main{
+    padding: 2rem;
+}
+
+#Home{
+    height: 100vh;
+    width: 100%;
+}
+
+#Projects{
+    height: 100vh;
+    width: 100%;
+}
+
+#Contact{
+    height: 100vh;
+    width: 100%;
+}
+
+#main-head {
+    position: fixed;
+    width: 100%;
+    
+}
+
+#logo {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top:10px;
+    left:10px;
+    
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0 5rem;
+}
+
+li {
+    margin: 0 auto;
+}
+
+li a {
+    text-decoration: none;
+    color: #fff;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+    font-size: 1.3rem;
+}
+
+
+
+/* CLASSES */
+
+
+.cursor {
+    position: fixed;
+    border-radius: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    left: -100px;
+    top: 50%;
+    mix-blend-mode: difference; 
+    background-color: transparent;
+    z-index: 10000;
+    border: 2px solid white;
+    height: 30px;
+    width: 30px;
+    transition: all 300ms ease-out;
+    backdrop-filter: blur(2px);
+  }
+
+.container{
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.name{
+    font-size: 8rem;
+    color:#fff;
+    animation-name: fadein;
+    animation-duration: 2s;
+    animation-direction : alternate;
+    animation-iteration-count: 1;
+    position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left:50%;
+    transform: translateX(-50%);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+#name:has(.fancy:hover) .word:not(.fancy:hover){
+    opacity: 0.2; 
+}
+
+.fancy > .letter {
+    display: inline-block;
+    transition: transform 350ms ease;
+}
+
+.fancy:hover > .letter:nth-child(even) {
+    transform: translate(-80%,60%) rotate(8deg);
+    transition-duration: 800ms;
+}
+
+.fancy:hover > .letter:nth-child(odd) {
+    transform: translate(-10%,60%) rotate(8deg);
+    transition-duration: 800ms;
+}
+
+.name-top .glow,
+.name-bottom .glow {
+    text-shadow: 0 0 1px #a5ff00, 0 0 15px #a5ff00, 0 0 20px #a5ff00, 0 0 40px #a5ff00, 0 0 60px #00ff00, 0 0 10px #8dff00, 0 0 98px #00ff00;
+    animation-name: lettertrans;
+    animation-duration: 2s;
+    animation-direction : normal;
+    opacity:0.75;
+}
+
+
+.selected{
+    animation-name: selected_link;
+    animation-duration: 0.5s;
+    animation-direction : normal;
+    animation-fill-mode: forwards;
+
+}
+
+
+@keyframes fadein {
+    0% {
+        left:60%
+    }
+
+
+    100% {
+        left:50%
+    }
+}
+
+
+@keyframes lettertrans {
+    0% {
+        opacity: 0.75;
+    }
+
+
+    100% {
+        opacity:0.75;
+    }
+}
+
+
+@keyframes selected_link {
+    0% {
+    }
+
+    100%{
+        text-shadow: 0 0 1px #a5ff00, 0 0 15px #a5ff00, 0 0 20px #a5ff00, 0 0 40px #a5ff00, 0 0 60px #00ff00, 0 0 10px #8dff00, 0 0 98px #00ff00;
+    }
+}

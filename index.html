@@ -6,46 +6,123 @@
     <title>triaxyd</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" type="image/x-icon" href="/images/triaxydlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 <body>
-    <div class='cursor' id="cursor"></div>
     <main id="main">
+        <div class="radial-gradient"></div>
+        <div class='cursor' id="cursor"></div>
+        <div class="little-cursor" id="little-cursor"></div>
         <header id="main-head">
             <div class="logo" id="logo">
-                <img src="images/triaxydlogo.png" alt="logo" width="100px" height="auto">
+                <img src="images/triaxydlogo.png" alt="logo" width="80px" height="auto">
             </div>
             <nav id="nav">
-                <div class="nav-container">
-                    <ul>
-                        <li><a class="selected" href="#Home">Home</a></li>
-                        <li><a href="#Projects">Projects</a></li>
-                        <li><a href="#Contact">Contact</a></li>
-                    </ul>
-                </div>
+                <ul id="nav-ul">
+                    <li class="nav-li"><a class="selected" href="#Home">Home</a></li>
+                    <li class="nav-li"><a href="#Projects">Projects</a></li>
+                    <li class="nav-li"><a href="#Contact">Contact</a></li>
+                </ul>
             </nav>
         </header>
         <section id="Home">
-            <div class="container">
-                <div class="name" id="name">
-                    <div class="word fancy" id="top-name">TRIANTAFYLLOS</div>
-                    <div class="word fancy" id="bottom-name">XYDIS</div>
+            <div class="name" id="name">
+                <div class="word fancy" id="top-name">TRIANTAFYLLOS</div>
+                <div class="word fancy" id="bottom-name">XYDIS</div>
+            </div>
+        </section>
+        <section id="Projects">
+            <div id="projects-info">
+                <h1>PROJECTS</h1>
+                <p>UNIVERSITY PROJECTS</p>
+            </div>
+            <div id="projects-container">
+                <div class="project" id="project1">
+                    <div class="project-info">
+                        <h2>Project 1</h2>
+                        <p>Project 1 description</p>
+                    </div>
+                </div>
+                <div class="project" id="project2">
+                    <div class="project-info">
+                        <h2>Project 2</h2>
+                        <p>Project 2 description</p>
+                    </div>
+                </div>
+                <div class="project" id="project3">
+                    <div class="project-info">
+                        <h2>Project 3</h2>
+                        <p>Project 3 description</p>
+                    </div>
+                </div>
+                <div class="project" id="project4">
+                    <div class="project-info">
+                        <h2>Project 4</h2>
+                        <p>Project 4 description</p>
+                    </div>
+                </div>
+                <div class="project" id="project5">
+                    <div class="project-info">
+                        <h2>Project 5</h2>
+                        <p>Project 5 description</p>
+                    </div>
+                </div>
+                <div class="project" id="project6">
+                    <div class="project-info">
+                        <h2>Project 6</h2>
+                        <p>Project 6 description</p>
+                    </div>
                 </div>
             </div>
         </section>
-    
-        <section id="Projects">
-            <div class="projects-outer">
-                
-            </div>
-        </section>
-    
+
         <section id="Contact">
-            <form id="contact-form">
-            </form>
+            <div id="social">
+                <ul id="social-ul">
+                    <li>
+                      <a class="facebook" target="_blank" href="https://www.facebook.com/triantafyllosx">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="instagram" target="_blank" href="https://www.instagram.com/triaxyd/">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li>
+                        <a class="github" target="_blank" href="https://github.com/triaxyd">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    <li>
+                      <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/triantafyllosxydis/">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+            </div>
         </section>
 
     </main>
-
+    
+        
 
     
     <script type="module" src="scripts/app.js"></script>

@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>triaxyd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" type="image/x-icon" href="/images/triaxydlogo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
     <main id="main">
@@ -20,9 +25,9 @@
             </div>
             <nav id="nav">
                 <ul id="nav-ul">
-                    <li class="nav-li"><a class="selected" href="#Home">Home</a></li>
-                    <li class="nav-li"><a href="#Projects">Projects</a></li>
-                    <li class="nav-li"><a href="#Contact">Contact</a></li>
+                    <li class="nav-li"><a href="#Home" class="selected">home</a></li>
+                    <li class="nav-li"><a href="#Projects">projects</a></li>
+                    <li class="nav-li"><a href="#Contact">contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -33,50 +38,54 @@
             </div>
         </section>
         <section id="Projects">
-            <div id="projects-info">
-                <h1>PROJECTS</h1>
-                <p>UNIVERSITY PROJECTS</p>
+            <div id="projects-header">
+                Work and Projects
             </div>
             <div id="projects-container">
-                <div class="project" id="project1">
+                <div class="project" id="project1-portfolio">
+                    <img class="project-img" src="images/portfolioscreen.png" onclick="window.open('https://github.com/triaxyd/triaxyd.github.io', '_blank')" alt="Portfolio Project">
                     <div class="project-info">
-                        <h2>Project 1</h2>
-                        <p>Project 1 description</p>
+                        <div class="project-name">Portfolio</div>
+                        <div class="project-description">this personal portfolio</div>
                     </div>
                 </div>
-                <div class="project" id="project2">
+                <div class="project" id="project2-cinema">
+                    <img class="project-img" src="images/cinemas.png" onclick="window.open('https://github.com/triaxyd/CinemaProject', '_blank')" alt="Cinemas Project"> 
                     <div class="project-info">
-                        <h2>Project 2</h2>
-                        <p>Project 2 description</p>
+                        <div class="project-name">Cinema</div>
+                        <div class="project-description">full stack cinema project</div>
                     </div>
                 </div>
-                <div class="project" id="project3">
+                <div class="project" id="project3-battleship">
+                    <img class="project-img" src="images/battleshipscreenshot.png" onclick="window.open('https://github.com/triaxyd/Battleship', '_blank')"  alt="BattleShip Project"> 
                     <div class="project-info">
-                        <h2>Project 3</h2>
-                        <p>Project 3 description</p>
+                        <div class="project-name">BattleShip</div>
+                        <div class="project-description">battleship game against computer</div>
                     </div>
                 </div>
-                <div class="project" id="project4">
+                <div class="project" id="project4-shooter">
+                    <img class="project-img" src="images/shooter.png" onclick="window.open('https://github.com/triaxyd/IphoneShooting', '_blank')" alt="Shooter Project"> 
                     <div class="project-info">
-                        <h2>Project 4</h2>
-                        <p>Project 4 description</p>
+                        <div class="project-name">Shooting Game</div>
+                        <div class="project-description">iphone vs android game</div>
                     </div>
                 </div>
-                <div class="project" id="project5">
+                <div class="project" id="project5-data-structures">
+                    <img class="project-img" src="images/data-structures.png" onclick="window.open('https://github.com/triaxyd/data-structures', '_blank')" alt="Data Structures Project"> 
                     <div class="project-info">
-                        <h2>Project 5</h2>
-                        <p>Project 5 description</p>
+                        <div class="project-name">Data Structures</div>
+                        <div class="project-description">implemented some data structures</div>
                     </div>
                 </div>
-                <div class="project" id="project6">
+                <div class="project" id="project5-data-compression">
+                    <img class="project-img" src="images/data-compression.png" onclick="window.open('https://github.com/triaxyd/information-theory', '_blank')" alt="Data Compression Project"> 
                     <div class="project-info">
-                        <h2>Project 6</h2>
-                        <p>Project 6 description</p>
+                        <div class="project-name">Information Theory</div>
+                        <div class="project-description">client-server data compression</div>
                     </div>
                 </div>
             </div>
         </section>
-
         <section id="Contact">
             <div id="social">
                 <ul id="social-ul">

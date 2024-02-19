@@ -1,5 +1,7 @@
 // Path: scripts/app.js
 
+
+// ***ON LOAD***
 /* on load remove any hash and scroll to top */
 window.onload = function() {
     removeHashFromURL();
@@ -19,9 +21,6 @@ function removeHashFromURL() {
     }
 }
 
-/* disable logo drag */
-document.getElementById('logo').ondragstart = function() { return false; };
-
 
 //cursor
 var cursor = document.getElementById("cursor");
@@ -32,38 +31,10 @@ function scollToTop() {
     window.scrollTo(0, 0);
 }
 
-/* select home link when on top of page */
-if (window.scrollY == 0) {
-    
+// prevent scroll
+function preventScrolling(e) {
+    e.preventDefault();
 }
-
-/* change background color on mouse move */
-/*
-document.addEventListener('mousemove', function(event) {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    
-    const mouseXpercentage = Math.round((event.pageX / windowWidth) * 100);
-    const mouseYpercentage = Math.round((event.pageY / windowHeight) * 100);
-    
-    const radialGradientElement = document.querySelector('.radial-gradient');
-    radialGradientElement.style.background = `radial-gradient(at ${mouseXpercentage}% ${mouseYpercentage}%,#452c63, #181818)`;    
-});
-*/
-
-
-/* change header on sroll */
-const header = document.querySelector('#main-head');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100){
-        header.style.background = 'rgba(0, 0, 0, 0.8)';
-        header.style.backdropFilter = 'blur(10px)'; 
-    }
-    else {
-        header.style.background ='';
-        header.style.backdropFilter = '';
-}
-});
 
 
 /* split name */
@@ -82,6 +53,18 @@ enhanced('top-name');
 enhanced('bottom-name');
 
 
+//**** HEADER ****
+
+// disable logo drag 
+document.getElementById('logo').ondragstart = function() { return false; };
+
+// rotate logo on scroll
+window.addEventListener('scroll', function() {
+    const logo = document.getElementById('logo');
+    const scrollPosition = window.scrollY;
+    const rotationAngle = (scrollPosition / (document.documentElement.scrollHeight - window.innerHeight)) * 360;
+    logo.style.transform = `rotate(${rotationAngle}deg)`;
+});
 
 /* change cursor position */
 document.body.addEventListener("mousemove", function(e) {
@@ -92,61 +75,116 @@ document.body.addEventListener("mousemove", function(e) {
 });
 
 
+/* change header on sroll */
+const header = document.querySelector('#main-head');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100){
+        header.style.background = 'rgba(0, 0, 0, 0.8)';
+        header.style.backdropFilter = 'blur(10px)'; 
+    }
+    else {
+        header.style.background ='';
+        header.style.backdropFilter = '';
+}
+});
+
 
 const sections = document.querySelectorAll('section'); // Get all sections
 const links = document.querySelectorAll('.nav-li a'); // Get navigation links
+let isScrollingAllowed = true; // Flag
+let lastClickTime = 0;
 
-let isScrollingAllowed = true; // Initialize the flag variable
-
-// Function to check if an element is in the viewport
-function isInViewport(element) {
-const rect = element.getBoundingClientRect();
-return (
-    rect.top >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-);
-}
-
-
-// Change selected link in navbar when a link is clicked
+// change selected link in navbar when a link is clicked
 links.forEach(link => {
-link.addEventListener('click', function (e) {
-    e.preventDefault(); // Prevent the default jump-to-anchor behavior
-    
-    // Check if scrolling is allowed
-    if (!isScrollingAllowed) return;
-    
-    // Disable scrolling temporarily
-    isScrollingAllowed = false;
-    
-    // Get the target section's ID from the link's href
-    const targetId = this.getAttribute('href').substring(1);
-    
-    // Find the target section by ID
-    const targetSection = document.getElementById(targetId);
-    
-    // Scroll to the target section with smooth behavior
-    if (targetSection) {
-    targetSection.scrollIntoView({ behavior: 'smooth' });
+    link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent the default jump-to-anchor behavior
+
+        // check if scrolling is allowed
+        if (!isScrollingAllowed) return;
+
+        // disable scrolling temporarily
+        isScrollingAllowed = false;
+
+        // get the target section's ID from the link's href
+        const targetId = this.getAttribute('href').substring(1);
+
+        // find the target section by ID
+        const targetSection = document.getElementById(targetId);
+
+        // scroll to the target section with smooth behavior
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // remove the selected class from all links
+        links.forEach(link => link.classList.remove('selected'));
+
+        // add the 'selected' class to the clicked link
+        this.classList.add('selected');
+
+        // update the last click time
+        lastClickTime = new Date().getTime();
+
+        setTimeout(() => {
+            isScrollingAllowed = true;
+        }, 1000);
+    });
+});
+
+
+// Remove selected link when scrolling
+window.addEventListener('scroll', function (e) {
+    const currentTime = new Date().getTime();
+    const clickAnimationDuration = 1000; // Animation duration in milliseconds
+
+    // Check if the time elapsed since the last click is beyond the animation duration
+    if (currentTime - lastClickTime > clickAnimationDuration) {
+        links.forEach(link => link.classList.remove('selected'));
     }
-    
-    // Remove the 'selected' class from all links
-    links.forEach(link => link.classList.remove('selected'));
-    
-    // Add the 'selected' class to the clicked link
-    this.classList.add('selected');
-    
-    // Enable scrolling after a short delay (adjust this delay as needed)
-    setTimeout(() => {
-    isScrollingAllowed = true;
-    }, 1000); // 1000 milliseconds (1 second) delay
-});
 });
 
 
+ScrollReveal().reveal('#top-name', {
+    delay: 300,               // Delay in milliseconds
+    duration: 1000,           // Duration of the animation in milliseconds
+    origin: 'left',         // Animation starting point (top, right, bottom, left)
+    distance: '50px',         // Distance from the starting point
+    easing: 'ease-out',       // Easing function
+    interval: 200             // Interval between each element's animation
+});
 
 
+ScrollReveal().reveal('#bottom-name', {
+    delay: 500,               // Delay in milliseconds
+    duration: 1500,           // Duration of the animation in milliseconds
+    origin: 'right',         // Animation starting point (top, right, bottom, left)
+    distance: '50px',         // Distance from the starting point
+    easing: 'ease-out',       // Easing function
+    interval: 200             // Interval between each element's animation
+});
 
+
+ScrollReveal().reveal('.project', {
+    delay: 400,               // Delay in milliseconds
+    duration: 1000,           // Duration of the animation in milliseconds
+    origin: 'bottom',         // Animation starting point (top, right, bottom, left)
+    distance: '50px',         // Distance from the starting point
+    easing: 'ease-out',       // Easing function
+    interval: 200             // Interval between each element's animation
+  });
+
+ 
+// Initialize ScrollReveal
+ScrollReveal().reveal('#social-ul li', {
+    delay: 400,               // Delay in milliseconds
+    duration: 1000,           // Duration of the animation in milliseconds
+    origin: 'bottom',         // Animation starting point (top, right, bottom, left)
+    distance: '50px',         // Distance from the starting point
+    easing: 'ease',           // Easing function
+    interval: 0            // Interval between each element's animation
+  });
+  
+  
 
 
 

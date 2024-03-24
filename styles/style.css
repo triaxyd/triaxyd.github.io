@@ -572,17 +572,12 @@ ul li a span {
     background: #3b5998;
   }
   .github:hover {
-    color: var(--mainwhite);
+    color: #2dba4e;
   }
   .github:hover span { 
-    background: var(--mainwhite);
+    background: #2dba4e;
   }
-  .instagram:hover {
-    color: #c32aa3;
-  }
-  .instagram:hover span { 
-    background: #c32aa3;
-  }
+  
   .linkedin:hover {
     color: #0072b1;
   }

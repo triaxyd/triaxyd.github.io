@@ -134,10 +134,9 @@ body::-webkit-scrollbar-thumb{
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    border: 1px solid var(--mainpurple);
     /*-webkit-animation: rotating 10s ease infinite;
     animation: rotating 10s ease infinite;*/
-    box-shadow: 0 0 1rem 0 var(--backcolor);
+    box-shadow: 0 0 1rem 0 var(--backcolornav);
     transition: transform 0.5s ease;
 }
 
@@ -382,6 +381,7 @@ transition-delay:500ms;
 #Projects {
   width:100%;
   height:100vh;
+  min-height: 100vh;
   display:flex;
   align-items:center;
   justify-content: center;
@@ -631,28 +631,83 @@ ul li a span {
 
     100%{
 
-        /*text-shadow: 0 0 1px var(--thirdpurple), 0 0 15px var(--thirdpurple), 0 0 20px var(--thirdpurple), 0 0 40px var(--thirdpurple), 0 0 60px var(--mainpurple), 0 0 10px var(--secondarypurple), 0 0 98px var(--secondarypurple);*/
         text-shadow: 0 0 0 var(--thirdpurple), 0 0 15px var(--thirdpurple), 0 0 5px var(--thirdpurple), 0 0 10px var(--thirdpurple), 0 0 10px var(--mainpurple), 0 0 10px var(--secondarypurple), 0 0 10px var(--secondarypurple);
     }
     
 }
 
+/* MEDIA QUERIES */
 
-
-/* MEDIA QUERIES - MAKE THE SITE RESPONSIVE */
-@media only screen and (max-width: 600px) {
-    .name{
-        font-size: 7vw;
-    }
-
-    #projects-container{
-        width: 75%;
-    }
+@media screen and (max-width: 1200px) {
+  .name {
+    font-size: 8vw; 
+  }
+  #projects-container {
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
 
-@media only screen and (max-width: 400px) {
-    .name{
-        font-size: 5vw;
-    }
+
+@media screen and (max-width: 850px) {
+
+  #projects-container {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+
+  #Projects {
+    width:100%;
+    height: auto;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #nav{
+    display: none;
+  }
+  #main-head {
+    justify-content: center; 
 }
+
+  #logo {
+      margin: 0;
+      
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  #social-ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; 
+  }
+  #social-ul li {
+    margin-bottom: 10px;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  .name {
+    font-size: 7vw; 
+  }
+  #projects-container {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+  
+}
+
+@media screen and (max-width: 480px) {
+  .name {
+    font-size: 6vw; 
+  }
+ 
+}
+
+
 

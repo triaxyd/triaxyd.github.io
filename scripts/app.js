@@ -58,13 +58,6 @@ enhanced('bottom-name');
 // disable logo drag 
 document.getElementById('logo').ondragstart = function() { return false; };
 
-// rotate logo on scroll
-window.addEventListener('scroll', function() {
-    const logo = document.getElementById('logo');
-    const scrollPosition = window.scrollY;
-    const rotationAngle = (scrollPosition / (document.documentElement.scrollHeight - window.innerHeight)) * 360;
-    logo.style.transform = `rotate(${rotationAngle}deg)`;
-});
 
 /* change cursor position */
 document.body.addEventListener("mousemove", function(e) {
@@ -73,7 +66,6 @@ document.body.addEventListener("mousemove", function(e) {
     littleCursor.style.left = e.clientX + "px",
     littleCursor.style.top = e.clientY + "px";
 });
-
 
 /* change header on sroll */
 const header = document.querySelector('#main-head');
@@ -132,15 +124,21 @@ links.forEach(link => {
 });
 
 
-// Remove selected link when scrolling
+// Remove selected link when scrolling and rotate logo
 window.addEventListener('scroll', function (e) {
     const currentTime = new Date().getTime();
     const clickAnimationDuration = 1000; // Animation duration in milliseconds
 
-    // Check if the time elapsed since the last click is beyond the animation duration
+    // check if the time elapsed since the last click is beyond the animation duration
     if (currentTime - lastClickTime > clickAnimationDuration) {
         links.forEach(link => link.classList.remove('selected'));
     }
+
+    // change logo rotation on scroll
+    const logo = document.getElementById('logo');
+    const scrollPosition = window.scrollY;
+    const rotationAngle = (scrollPosition / (document.documentElement.scrollHeight - window.innerHeight)) * 360;
+    logo.style.transform = `rotate(${rotationAngle}deg)`;
 });
 
 
@@ -183,7 +181,7 @@ ScrollReveal().reveal('#social-ul li', {
     easing: 'ease',           // Easing function
     interval: 0            // Interval between each element's animation
   });
-  
+
   
 
 
